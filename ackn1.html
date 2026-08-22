@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Customer acknowledgement</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+</head>
+<body>
+	<form onsubmit="return Hotel.lookup(event);" style="width: 40%; margin: 0 auto; padding-top: 5px;">
+		<h4><center>Enter the login details</center></h4>
+		<input type="text" name="uname" placeholder="Enter name">
+		<input type="password" name="mobno" placeholder="Enter password">
+		<button class="btn" type="submit" style="margin-bottom: 20px;">Get acknowledgement</button>
+		<a href="index.html">Home</a>
+	</form>
+	<table class="striped" style="width:90%;margin:20px auto;">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Contact</th>
+				<th>Check in date</th>
+				<th>Check out date</th>
+				<th>Room No.</th>
+				<th>Room type</th>
+				<th>Amount</th>
+			</tr>
+		</thead>
+		<tbody id="ack-body"></tbody>
+	</table>
+	<div id="pay-wrap" style="display:none;width:500px;margin:40px auto;">
+		<h5>Click here to pay</h5>
+		<form onsubmit="return Hotel.pay(event);">
+			<div class="input-field">
+				<input type="text" name="payamount" id="payamount" readonly>
+				<label class="active" for="payamount">AMOUNT</label>
+			</div>
+			<div class="input-field">
+				<input type="text" name="accname" id="accname">
+				<label for="accname">ACCOUNT HOLDER NAME</label>
+			</div>
+			<div class="input-field">
+				<input type="number" name="accno" id="accno">
+				<label for="accno">ACCOUNT NUMBER</label>
+			</div>
+			<button class="btn" type="submit">Pay</button>
+		</form>
+	</div>
+	<script src="js/booking.js"></script>
+</body>
+</html>

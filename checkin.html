@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Book a room</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="cssa/materialize.min.css" media="screen,projection"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+	<form onsubmit="return Hotel.createBooking(event);" style="width: 40%; margin: 0 auto; padding-top: 5px;">
+		<div class="row">
+			<label for="hyd"><h6>City</h6></label>
+			<input type="text" value="Hyderabad" readonly id="hyd" name="city">
+		</div>
+		<h4>Enter user details</h4>
+		<div class="row">
+			<div class="input-field">
+				<i class="material-icons prefix">account_circle</i>
+				<input type="text" name="uname" id="un">
+				<label for="un"><h6>Enter name</h6></label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field">
+				<i class="material-icons prefix">phone</i>
+				<input type="number" name="mobno" id="mn">
+				<label for="mn"><h6>Enter mobile number</h6></label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field">
+				<i class="material-icons prefix">mail</i>
+				<input type="email" name="mailid" id="mi">
+				<label for="mi"><h6>Enter E-mail ID</h6></label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field">
+				<i class="material-icons prefix">enhanced_encryption</i>
+				<input type="password" name="pass" id="ad">
+				<label for="ad"><h6>Set Password</h6></label>
+			</div>
+		</div>
+		<div class="row">
+			<label for="cout"><h6>Check in and check out dates</h6></label>
+			<div class="input-field col s6" style="display: inline;">
+				<input style="display: inline; width: 200px;" type="date" name="cindate" id="cin">
+			</div>
+			<div class="input-field col s6" style="display: inline">
+				<input style="display: inline; width: 200px;" type="date" name="coutdate" id="cout">
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field">
+				<h6>Select room type</h6>
+				<p style="display: inline;">
+					<label>
+						<input style="display: inline;" value="single(500/day)" type="radio" name="rtype"/>
+						<span>Single (500/-)</span>
+					</label>
+				</p>
+				<p style="display: inline;">
+					<label>
+						<input style="display: inline;" value="double(750/day)" type="radio" name="rtype"/>
+						<span>Double (750/-)</span>
+					</label>
+				</p>
+				<p style="display: inline;">
+					<label>
+						<input style="display: inline;" value="deluxe(1000/day)" type="radio" name="rtype"/>
+						<span>Deluxe (1000/-)</span>
+					</label>
+				</p>
+			</div>
+		</div>
+		<button class="btn" type="submit" name="book" style="margin-bottom: 20px;">Book now</button>
+		<a class="btn" href="index.html" style="margin-bottom: 20px; color: white;">Cancel</a>
+	</form>
+	<script src="js/booking.js"></script>
+	<script>
+		var city = new URLSearchParams(window.location.search).get("city") || "Hyderabad";
+		document.getElementById("hyd").value = city;
+		document.title = "Select city - " + city;
+	</script>
+</body>
+</html>
